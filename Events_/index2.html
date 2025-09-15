@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Learning</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(() => {
+    //     console.log("Win The Universe");
+    // }, 2000);
+    // setInterval(() => {
+    //     console.log("Winning The Universe");
+    // }, 3000);
+
+    // const name=() => {
+    //     console.log("Win The Universe");
+    // };
+    // setTimeout(name,2000);
+    // document.querySelector("h1").innerHTML=("best js learning"); // ok by using function and setTimeout(),we can run the code after perticular time.
+
+    const change = function(){
+        document.querySelector("h1").innerHTML=("best js learning");
+    }
+
+    const changeMe=setTimeout(change,2000);
+
+    document.querySelector("#stop").
+    addEventListener("click",function () {
+        clearTimeout(changeMe);
+        console.log("Stopped");
+    });
+    
+
+
+</script>
+</html>

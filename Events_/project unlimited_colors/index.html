@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Color Guessing</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div>
+    <h1>Start should change the Background color every second</h1>
+    <button id="start">Start</button><br><br>
+    <button id="stop">Stop</button>
+    </div>
+</body>
+<script>
+  // generate random colors.......
+    const randomColor = function () {
+    const hex = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    };
+    
+    let intervalId=null;
+    document.querySelector('#start').addEventListener('click',()=>{
+        if(!intervalId){
+        intervalId=setInterval(()=>{        
+        document.body.style.backgroundColor=randomColor()
+        },1000);
+    }
+    });
+
+    document.querySelector('#stop').addEventListener('click',()=>{
+         clearInterval(intervalId);
+         intervalId=null;
+    });
+
+</script>
+</html>
